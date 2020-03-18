@@ -8,6 +8,7 @@ import Cliente from "./cliente.js"
 import ClienteFrecuente from "./clienteFrecuente.js"
 import ElementoPedido from "./elementoPedido.js"
 import Pedido from "./pedido.js"
+import Restaurante from "./restaurante.js"
 
 class Main {
     constructor(){
@@ -25,6 +26,7 @@ class Main {
         this._direccion = new Direccion ("Av. Tecnologico", 150, "Santa Barbara", 28040, "Colima", "Col.")
         this._direccion2 = new Direccion ("Rafael Heredia", 307, "Bugambilias", 28060, "Colima", "Col.")
         this._direccion3 = new Direccion ("Nicolas Bravo", 67, "San Pablo", 28100, "Colima", "Col.")
+        this._direccion4 = new Direccion ("Periferico Sur", 3375, "Villa Latina", 29060, "Colima", "Col.")
 
         this._precio1 = new Precio (30.5)
         this._precio2 = new Precio (35.0)
@@ -40,6 +42,8 @@ class Main {
         this._elementoPedido = new ElementoPedido (2, this._producto2)
 
         this._pedido1 = new Pedido (25, this._fecha3, this._hora2, this._cliente2)
+
+        this._restaurante = new Restaurante ("Restaurante La Reliquia", 927-232-922, this._direccion4)
     }
     probarFecha(){
         console.log(this._fecha1.getAños())
@@ -92,6 +96,15 @@ class Main {
         console.log(this._pedido1.agregarElementos())
         console.log(this._pedido1.listarElementos())
     }
+    probarRestaurante(){
+        console.log(this._restaurante.registrarProducto())
+        console.log(this._restaurante.listarProductos())
+        console.log(this._restaurante.registrarPedido())
+        console.log(this._restaurante.listarPedidos())
+        console.log(this._restaurante.buscarPedido())
+        console.log(this._restaurante.eliminarPedido())
+        console.log(this._restaurante.modificarPedido())
+    }
 }
 
 let app = new Main()
@@ -106,3 +119,4 @@ app.probarCliente()
 app.probarClienteFrecuente()
 app.probarElementoPedido()
 app.probarPedido()
+app.probarRestaurante()
